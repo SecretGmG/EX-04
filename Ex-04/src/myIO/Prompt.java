@@ -45,7 +45,7 @@ public class Prompt {
 					return true;
 				}
 			}
-			System.out.println("Your input was invalif please answer the question with y or n");
+			System.out.println("Your input was invalid please answer the question with y or n");
 		}		
 	}
 	

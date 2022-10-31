@@ -14,55 +14,89 @@ public class Pig {
 			+ "summiert und dem Konto des Spielers gutgeschrieben. Sollte der Spieler\r\n"
 			+ "zwei EINSEN gleichzeitig wurfeln, verliert er alle bis zu diesem Zeitpunkt gesammelten Punkte auf seinem Konto und sein Zug ist ebenfalls\r\n"
 			+ "zu Ende";
-	
+
 	int pointSum1;
 	int pointSum2;
-	
+
 	PairOfDice dice;
-	
+
 	public Pig() {
 		this.pointSum1 = 0;
 		this.pointSum2 = 0;
 		this.dice = new PairOfDice();
 	}
-	
+
 	private void play() {
 		System.out.println(ENTRY_TEXT);
-		
-		while(true) {
-			runPlayer1Turn();
-			if(winningCondition()) break;
-			runPlayer2Turn();
-			if(winningCondition()) break;
+
+		while (true) {
+			
+			System.out.println("Spieler 1 ist jetzt am Zug:");
+			pointSum1 = runTurn(pointSum1);
+			if (winningCondition())
+				break;
+
+			System.out.println("Spieler 2 ist jetzt am Zug:");
+			pointSum1 = runTurn(pointSum1);			
+			if (winningCondition())
+				break;
 		}
-		
+
 		finishGame();
-		
-		
+
 	}
+
 	public static boolean containsOne(PairOfDice dice) {
 		return dice.getDice1Points() == 1 || dice.getDice2Points() == 1;
 	}
-	public static boolean areBothOne(Pair)
-	public void runPlayer1Turn() {
-		
+
+	public static boolean areBothOne(PairOfDice dice) {
+		return dice.getDice1Points() == 1 && dice.getDice2Points() == 1;
 	}
-	public void runPlayer2Turn() {
-		
+
+	private int runTurn(int score) {
+		int newScore = score;
+		while (promptAndRoll()) {
+			System.out.println("Du hast " + dice + " gewürfelt");
+			if (areBothOne(dice)) {
+				System.out.println(
+						"Was ein pech du hast zweimal eine 1 gewürfelt.\n"+
+						"Deine Punktzahl auf 0 gesetzt und dein Zug ist beendet!");
+				return 0;
+			}
+			if (containsOne(dice)) {
+				System.out.println("Weil du eine 1 gewürfelt hast ist dein Zug jetzt beendet");
+				System.out.println("Deine Punktzahl ist" + newScore);
+			}
+			newScore += dice.getPointSum();
+			System.out.println("Deine neue Punktzahl ist " + newScore);
+		}
+		return newScore;
+	}
+
+	private boolean promptAndRoll() {
+		if (myIO.Prompt.promptYN("möchtest du würfeln? (y/n)")) {
+			this.dice.rollBoth();
+			return true;
+		} else {
+			return false;
+		}
 	}
 	public boolean winningCondition() {
-		
+		return pointSum1>WINNING_CONDITION || pointSum2>WINNING_CONDITION;
 	}
+
 	public void finishGame() {
-		
+		if (pointSum1 > pointSum2){
+			System.out.println("Glückwunsch Spieler 1 hat mit " + pointSum1 + "Punkten gegen Spieler 2 mit " + pointSum2 + "Punkten gewonnen");
+		}else {
+			System.out.println("Glückwunsch Spieler 2 hat mit " + pointSum1 + "Punkten gegen Spieler 1 mit " + pointSum2 + "Punkten gewonnen");
+			
+		}
 	}
-	
-	
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
-	
-	
-
 }
