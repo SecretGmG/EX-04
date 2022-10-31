@@ -40,9 +40,10 @@ public class Pig {
 		
 		
 	}
-	public static int containsOne(PairOfDice dice) {
-		return dice.getDice1() == 1 || dice.getDice2() == 1;
+	public static boolean containsOne(PairOfDice dice) {
+		return dice.getDice1Points() == 1 || dice.getDice2Points() == 1;
 	}
+	public static boolean
 	public void runPlayer1Turn() {
 		
 	}

@@ -15,19 +15,19 @@ public class PairOfDice {
 	}
 	/** calculates and returns the sum of points of the 2 dice */
 	public int getPointSum() {
-		return dice1.getPoints() + dice2.getPoints();
+		return getDice1Points() + getDice2Points();
 	}
-	public Dice getDice1() {
-		return dice1;
+	public int getDice1Points() {
+		return dice1.getPoints();
 	}
-	public void setDice1(Dice dice1) {
-		this.dice1 = dice1;
+	public void setDice1Points(int dice1) {
+		this.dice1.setPoints(dice1);
 	}
-	public Dice getDice2() {
-		return dice2;
+	public int getDice2Points() {
+		return dice2.getPoints();
 	}
-	public void setDice2(Dice dice2) {
-		this.dice2 = dice2;
+	public void setDice2Points(int dice2) {
+		this.dice2.setPoints(dice2);
 	}
 	
 }
