@@ -29,7 +29,7 @@ public class Coin {
 		return !this.isHead;
 	}
 	public String toString() {
-		return "Coin ["+ (isHead ? "Head" :  "Tails") + "]";
+		return isHead ? "Head" :  "Tails";
 	}
 	public boolean equals(Coin other) {
 		return isHead == other.isHead;
