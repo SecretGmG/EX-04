@@ -1,3 +1,6 @@
+//Sigrist Cedric 22-120-844
+//Moritz Scholz 22-122-071
+
 //package serie04;
 package dice;
 import java.util.Random;

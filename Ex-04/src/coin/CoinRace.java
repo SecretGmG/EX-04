@@ -1,3 +1,5 @@
+//Sigrist Cedric 22-120-844
+//Moritz Scholz 22-122-071package coin;
 package coin;
 
 public class CoinRace {
@@ -10,7 +12,7 @@ public class CoinRace {
 		
 	}
 	
-	
+	/** runs the coin race */
 	public static void runCoinRace() {
 		Coin coin1 = new Coin();
 		Coin coin2 = new Coin();
@@ -38,6 +40,8 @@ public class CoinRace {
 		}
 		printCoinRaceResult(streak1,streak2);
 	}
+	
+	/** prints a final statement for the coin race */
 	public static void printCoinRaceResult(int streak1, int streak2) {
 		
 		if(streak1>streak2) {
@@ -51,6 +55,7 @@ public class CoinRace {
 		}
 		
 	}
+	/** prints the state of a single coin race round */
 	public static void printCoinRaceRound(int i, Coin coin1, Coin coin2) {
 		System.out.println("Runde " + i + ": " + coin1 + " " + coin2);
 	}

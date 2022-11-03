@@ -1,8 +1,12 @@
+//Sigrist Cedric 22-120-844
+//Moritz Scholz 22-122-071
+
 package dice;
 
 public class PairOfDice {
 	private Dice dice1;
 	private Dice dice2;
+	
 	
 	public PairOfDice() {
 		this.dice1 = new Dice();
@@ -29,5 +33,7 @@ public class PairOfDice {
 	public void setDice2Points(int dice2) {
 		this.dice2.setPoints(dice2);
 	}
-	
+	public String toString() {
+		return getDice1Points() + ", " + getDice2Points();
+	}
 }
